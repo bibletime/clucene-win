@@ -13,9 +13,12 @@
 CL_NS_DEF(index)
 
 
-class Term_Equals:public CL_NS_STD(binary_function)<const Term*,const Term*,bool>
+class Term_Equals
 {
 public:
+	typedef const Term* first_argument_type;
+	typedef const Term* second_argument_type;
+	typedef bool result_type;
 	bool operator()( const Term* val1, const Term* val2 ) const{
 		return val1->equals(val2);
 	}

@@ -377,9 +377,12 @@ TCHAR* MultiPhraseQuery::toString(const TCHAR* f) const {
 	return buffer.giveBuffer();
 }
 
-class TermArray_Equals:public CL_NS_STD(binary_function)<const Term**,const Term**,bool>
+class TermArray_Equals
 {
 public:
+	typedef const Term** first_argument_type;
+	typedef const Term** second_argument_type;
+	typedef bool result_type;
 	bool operator()( CL_NS(util)::ArrayBase<CL_NS(index)::Term*>* val1, CL_NS(util)::ArrayBase<CL_NS(index)::Term*>* val2 ) const{
     if ( val1->length != val2->length )
       return false;

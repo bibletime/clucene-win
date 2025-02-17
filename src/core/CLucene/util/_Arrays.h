@@ -124,12 +124,14 @@ CL_NS_DEF(util)
 	
 	template <typename _kt, typename _comparator, 
 		typename class1, typename class2>
-	class CLListEquals:
-		public CL_NS_STD(binary_function)<class1*,class2*,bool>
+	class CLListEquals
 	{
 	typedef typename class1::const_iterator _itr1;
 	typedef typename class2::const_iterator _itr2;
 	public:
+		typedef class1* first_argument_type;
+		typedef class2* second_argument_type;
+		typedef bool result_type;
 		CLListEquals(){
 		}
 		bool equals( class1* val1, class2* val2 ) const{

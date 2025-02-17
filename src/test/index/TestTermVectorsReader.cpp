@@ -93,17 +93,21 @@ CL_NS_USE(util);
     }
   };
 
-  struct MyTCharCompare :
-    public std::binary_function<const TCHAR*, const TCHAR*, bool>
+  struct MyTCharCompare
   {
+    typedef const TCHAR* first_argument_type;
+    typedef const TCHAR* second_argument_type;
+    typedef bool result_type;
     bool operator () (const TCHAR* v1, const TCHAR* v2) const {
       return _tcscmp(v1, v2) < 0;
     }
   };
 
-  struct TestTokenCompare : 
-    public std::binary_function<const TestToken*, const TestToken*, bool>
+  struct TestTokenCompare
   {
+    typedef const TestToken* first_argument_type;
+    typedef const TestToken* second_argument_type;
+    typedef bool result_type;
     bool operator () (const TestToken* t1, const TestToken* t2) const {
       return t1->pos < t2->pos;
     }

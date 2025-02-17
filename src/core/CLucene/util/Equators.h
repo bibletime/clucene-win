@@ -22,21 +22,30 @@ CL_NS_DEF(util)
 /** @internal */
 class CLUCENE_INLINE_EXPORT Equals{
 public:
-	class CLUCENE_INLINE_EXPORT Int32:public CL_NS_STD(binary_function)<const int32_t*,const int32_t*,bool>
+	class CLUCENE_INLINE_EXPORT Int32
 	{
 	public:
+		typedef const int32_t* first_argument_type;
+		typedef const int32_t* second_argument_type;
+		typedef bool result_type;
 		bool operator()( const int32_t val1, const int32_t val2 ) const;
 	};
 	
-	class CLUCENE_INLINE_EXPORT Char:public CL_NS_STD(binary_function)<const char*,const char*,bool>
+	class CLUCENE_INLINE_EXPORT Char
 	{
 	public:
+		typedef const char* first_argument_type;
+		typedef const char* second_argument_type;
+		typedef bool result_type;
 		bool operator()( const char* val1, const char* val2 ) const;
 	};
 #ifdef _UCS2
-	class CLUCENE_INLINE_EXPORT WChar: public CL_NS_STD(binary_function)<const wchar_t*,const wchar_t*,bool>
+	class CLUCENE_INLINE_EXPORT WChar
 	{
 	public:
+		typedef const wchar_t* first_argument_type;
+		typedef const wchar_t* second_argument_type;
+		typedef bool result_type;
 		bool operator()( const wchar_t* val1, const wchar_t* val2 ) const;
 	};
 	class CLUCENE_INLINE_EXPORT TChar: public WChar{
@@ -48,9 +57,12 @@ public:
 
 
     template<typename _cl>
-	class CLUCENE_INLINE_EXPORT Void:public CL_NS_STD(binary_function)<const void*,const void*,bool>
+	class CLUCENE_INLINE_EXPORT Void
 	{
 	public:
+		typedef const void* first_argument_type;
+		typedef const void* second_argument_type;
+		typedef bool result_type;
 		bool operator()( _cl* val1, _cl* val2 ) const{
 			return val1==val2;
 		}

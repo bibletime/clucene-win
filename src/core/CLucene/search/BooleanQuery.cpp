@@ -25,9 +25,12 @@ CL_NS_USE(index)
 CL_NS_USE(util)
 CL_NS_DEF(search)
 
-	class BooleanClause_Compare:public CL_NS_STD(binary_function)<const BooleanClause*,const BooleanClause*,bool>
+	class BooleanClause_Compare
 	{
 	public:
+		typedef const BooleanClause* first_argument_type;
+		typedef const BooleanClause* second_argument_type;
+		typedef bool result_type;
 		bool operator()( const BooleanClause* val1, const BooleanClause* val2 ) const {
 			return val1->equals(val2);
 		}
